@@ -10,4 +10,12 @@
 
 @interface Repo : NSObject
 
+- (int64_t)identifier;
+- (NSString *)name;
+- (NSString *)repoDescription;
+
+- (instancetype)initWithIdentifier:(int64_t)identifier
+                              name:(NSString *)name
+                   repoDescription:(NSString *)repoDescription;
+
 @end

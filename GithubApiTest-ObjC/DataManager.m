@@ -41,8 +41,20 @@
 
 - (void)loadReposForUser:(NSString *)userName completion:(void (^)(NSArray <Repo *> * _Nullable, NSError * _Nullable))completion {
     UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
+
+    __weak typeof(self) weakSelf = self;
     [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
-        //TODO: parse data
+        NSMutableArray *repos = [NSMutableArray new];
+        for (NSDictionary *dictionary in dataArray) {
+            Repo *repo = [weakSelf.repoParser createRepoWithDictionary:dictionary];
+            if (repo) {
+                [repos addObject:repo];
+            }
+        }
+
+        if (completion) {
+            completion([repos copy], error);
+        }
     }];
 }
 
