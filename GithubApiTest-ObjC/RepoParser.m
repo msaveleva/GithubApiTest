@@ -22,6 +22,14 @@ static NSString * const kDescriptionKey = @"description";
     NSString *name = dictionary[kNameKey];
     NSString *repoDescription = dictionary[kDescriptionKey];
 
+    if (![name isKindOfClass:[NSString class]]) {
+        name = @"";
+    }
+
+    if (![repoDescription isKindOfClass:[NSString class]]) {
+        repoDescription = @"";
+    }
+
     if (name != nil && repoDescription != nil) {
         repo = [[Repo alloc] initWithIdentifier:identifier
                                            name:name

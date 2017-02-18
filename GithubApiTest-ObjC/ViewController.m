@@ -8,8 +8,14 @@
 
 #import "ViewController.h"
 #import "DataManager.h"
+#import "Repo.h"
 
-@interface ViewController ()
+static NSString * const kMainScreenCellId = @"MainScreenCellId";
+
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray <Repo *> *repos;
 
 @end
 
@@ -18,14 +24,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setupUI];
+
     [self test];
 }
 
 
 - (void)test {
+    __weak typeof(self) weakSelf = self;
     [[DataManager sharedInstance] loadReposForUser:@"msaveleva" completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
-        //
+        weakSelf.repos = repos;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
     }];
+}
+
+#pragma mark - Private methods
+
+- (void)setupUI {
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 140.0;
+}
+
+
+#pragma mark - UITableViewDataSource methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.repos.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMainScreenCellId];
+
+    if (self.repos.count - 1 >= indexPath.row) {
+        Repo *currentRepo = self.repos[indexPath.row];
+        cell.textLabel.text = currentRepo.name;
+        cell.detailTextLabel.text = currentRepo.repoDescription;
+    }
+
+    return cell;
 }
 
 

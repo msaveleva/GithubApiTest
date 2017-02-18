@@ -85,10 +85,9 @@
 				CFEFACCF1E58968A00E33711 /* Requests */,
 				CFEFACCB1E58967400E33711 /* Services */,
 				CFEFACCA1E58966800E33711 /* Managers */,
+				CFEFACE41E58A26D00E33711 /* ViewControllers */,
 				CFEFACB31E58950200E33711 /* AppDelegate.h */,
 				CFEFACB41E58950200E33711 /* AppDelegate.m */,
-				CFEFACB61E58950200E33711 /* ViewController.h */,
-				CFEFACB71E58950200E33711 /* ViewController.m */,
 				CFEFACB91E58950200E33711 /* Main.storyboard */,
 				CFEFACBF1E58950200E33711 /* Assets.xcassets */,
 				CFEFACC11E58950200E33711 /* LaunchScreen.storyboard */,
@@ -150,6 +149,15 @@
 				CFEFACE21E589BAB00E33711 /* Repo.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		CFEFACE41E58A26D00E33711 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACB61E58950200E33711 /* ViewController.h */,
+				CFEFACB71E58950200E33711 /* ViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,6 +400,7 @@
 				CFEFACC91E58950200E33711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
