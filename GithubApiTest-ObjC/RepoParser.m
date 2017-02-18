@@ -22,6 +22,7 @@ static NSString * const kDescriptionKey = @"description";
     NSString *name = dictionary[kNameKey];
     NSString *repoDescription = dictionary[kDescriptionKey];
 
+    //TODO: improve check
     if (![name isKindOfClass:[NSString class]]) {
         name = @"";
     }
