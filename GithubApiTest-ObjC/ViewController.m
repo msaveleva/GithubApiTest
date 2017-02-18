@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "DataManager.h"
 #import "Repo.h"
+#import "MainScreenTableViewCell.h"
 
 static NSString * const kMainScreenCellId = @"MainScreenCellId";
 
@@ -46,6 +47,9 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
 - (void)setupUI {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 140.0;
+
+    UINib *cellNib = [UINib nibWithNibName:@"MainScreenTableViewCell" bundle:[NSBundle mainBundle]];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:kMainScreenCellId];
 }
 
 
@@ -56,12 +60,11 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMainScreenCellId];
+    MainScreenTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kMainScreenCellId];
 
     if (self.repos.count - 1 >= indexPath.row) {
         Repo *currentRepo = self.repos[indexPath.row];
-        cell.textLabel.text = currentRepo.name;
-        cell.detailTextLabel.text = currentRepo.repoDescription;
+        [cell configureWithRepo:currentRepo];
     }
 
     return cell;
