@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DataManager.h"
 
 @interface ViewController ()
 
@@ -16,13 +17,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self test];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)test {
+    [[DataManager sharedInstance] loadReposForUser:@"msaveleva" completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
+        //
+    }];
 }
 
 

@@ -14,6 +14,12 @@
 		CFEFACBE1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACBC1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld */; };
 		CFEFACC01E58950200E33711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFEFACBF1E58950200E33711 /* Assets.xcassets */; };
 		CFEFACC31E58950200E33711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFEFACC11E58950200E33711 /* LaunchScreen.storyboard */; };
+		CFEFACCE1E58968700E33711 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACCD1E58968700E33711 /* ConnectionService.m */; };
+		CFEFACD51E58982900E33711 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACD41E58982900E33711 /* DataManager.m */; };
+		CFEFACD81E58985F00E33711 /* UserReposRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACD71E58985F00E33711 /* UserReposRequest.m */; };
+		CFEFACDB1E58997500E33711 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACDA1E58997500E33711 /* Constants.m */; };
+		CFEFACDF1E589B9F00E33711 /* RepoParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACDE1E589B9F00E33711 /* RepoParser.m */; };
+		CFEFACE31E589BAB00E33711 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACE21E589BAB00E33711 /* Repo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,18 @@
 		CFEFACBF1E58950200E33711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFEFACC21E58950200E33711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFEFACC41E58950200E33711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFEFACCC1E58968700E33711 /* ConnectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
+		CFEFACCD1E58968700E33711 /* ConnectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
+		CFEFACD31E58982900E33711 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		CFEFACD41E58982900E33711 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		CFEFACD61E58985F00E33711 /* UserReposRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReposRequest.h; sourceTree = "<group>"; };
+		CFEFACD71E58985F00E33711 /* UserReposRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReposRequest.m; sourceTree = "<group>"; };
+		CFEFACD91E58997500E33711 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CFEFACDA1E58997500E33711 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CFEFACDD1E589B9F00E33711 /* RepoParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoParser.h; sourceTree = "<group>"; };
+		CFEFACDE1E589B9F00E33711 /* RepoParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoParser.m; sourceTree = "<group>"; };
+		CFEFACE11E589BAB00E33711 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		CFEFACE21E589BAB00E33711 /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,13 @@
 		CFEFACAF1E58950200E33711 /* GithubApiTest-ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				CFEFACD91E58997500E33711 /* Constants.h */,
+				CFEFACDA1E58997500E33711 /* Constants.m */,
+				CFEFACE01E589BA400E33711 /* Model */,
+				CFEFACDC1E589B9000E33711 /* Parsers */,
+				CFEFACCF1E58968A00E33711 /* Requests */,
+				CFEFACCB1E58967400E33711 /* Services */,
+				CFEFACCA1E58966800E33711 /* Managers */,
 				CFEFACB31E58950200E33711 /* AppDelegate.h */,
 				CFEFACB41E58950200E33711 /* AppDelegate.m */,
 				CFEFACB61E58950200E33711 /* ViewController.h */,
@@ -80,6 +105,51 @@
 				CFEFACB11E58950200E33711 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFEFACCA1E58966800E33711 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACD31E58982900E33711 /* DataManager.h */,
+				CFEFACD41E58982900E33711 /* DataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		CFEFACCB1E58967400E33711 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACCC1E58968700E33711 /* ConnectionService.h */,
+				CFEFACCD1E58968700E33711 /* ConnectionService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CFEFACCF1E58968A00E33711 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACD61E58985F00E33711 /* UserReposRequest.h */,
+				CFEFACD71E58985F00E33711 /* UserReposRequest.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		CFEFACDC1E589B9000E33711 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACDD1E589B9F00E33711 /* RepoParser.h */,
+				CFEFACDE1E589B9F00E33711 /* RepoParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		CFEFACE01E589BA400E33711 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACE11E589BAB00E33711 /* Repo.h */,
+				CFEFACE21E589BAB00E33711 /* Repo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,10 +224,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEFACDF1E589B9F00E33711 /* RepoParser.m in Sources */,
 				CFEFACB81E58950200E33711 /* ViewController.m in Sources */,
 				CFEFACBE1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld in Sources */,
+				CFEFACD51E58982900E33711 /* DataManager.m in Sources */,
 				CFEFACB51E58950200E33711 /* AppDelegate.m in Sources */,
+				CFEFACE31E589BAB00E33711 /* Repo.m in Sources */,
 				CFEFACB21E58950200E33711 /* main.m in Sources */,
+				CFEFACD81E58985F00E33711 /* UserReposRequest.m in Sources */,
+				CFEFACCE1E58968700E33711 /* ConnectionService.m in Sources */,
+				CFEFACDB1E58997500E33711 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
