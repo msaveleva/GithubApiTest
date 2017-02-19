@@ -42,27 +42,36 @@
 #pragma mark - Public methods
 
 - (void)loadReposForUser:(NSString *)userName completion:(void (^)(NSArray <Repo *> * _Nullable, NSError * _Nullable))completion {
-    UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
-
-    __weak typeof(self) weakSelf = self;
-    //TODO: add strongSelf
-    [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
-        NSMutableArray *repos = [NSMutableArray new];
-        for (NSDictionary *dictionary in dataArray) {
-            Repo *repo = [weakSelf.repoParser createRepoWithDictionary:dictionary];
-            if (repo) {
-                [repos addObject:repo];
-            }
-        }
-
-        if (repos.count > 0) {
-            [weakSelf.storageService saveRepos:repos];
-        }
-
+    //First try to load data from cache.
+    NSArray <Repo *> *repos = [self.storageService fetchRepos];
+    if (repos.count > 0) {
         if (completion) {
-            completion([repos copy], error);
+            completion(repos, nil);
         }
-    }];
+    } else {
+        //Load from server if there is no cached data.
+        UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
+
+        __weak typeof(self) weakSelf = self;
+        //TODO: add strongSelf
+        [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
+            NSMutableArray *repos = [NSMutableArray new];
+            for (NSDictionary *dictionary in dataArray) {
+                Repo *repo = [weakSelf.repoParser createRepoWithDictionary:dictionary];
+                if (repo) {
+                    [repos addObject:repo];
+                }
+            }
+
+            if (repos.count > 0) {
+                [weakSelf.storageService saveRepos:repos];
+            }
+
+            if (completion) {
+                completion([repos copy], error);
+            }
+        }];
+    }
 }
 
 
