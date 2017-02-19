@@ -10,12 +10,16 @@
 
 @class Repo;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface RepoMO : NSManagedObject
 
 @property (nonatomic) int64_t identifier;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *repoDescription;
+@property (nonatomic, strong, nullable) NSString *repoDescription;
 
 - (void)configureWith:(Repo *)repo;
 
 @end
+
+NS_ASSUME_NONNULL_END
