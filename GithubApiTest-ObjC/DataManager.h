@@ -16,8 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
+/// Load data from server or cache (if exists).
 - (void)loadReposForUser:(NSString *)userName
               completion:(nullable void(^)(NSArray <Repo *> * _Nullable repos, NSError * _Nullable error))completion;
+
+/// Always load data from server.
+- (void)forceLoadReposForUser:(NSString *)userName
+                   completion:(nullable void(^)(NSArray <Repo *> * _Nullable repos, NSError * _Nullable error))completion;
 
 @end
 
