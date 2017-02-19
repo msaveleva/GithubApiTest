@@ -19,6 +19,9 @@ static NSString * const kModelName = @"GithubApiTest_ObjC";
 
 @property (nonatomic, strong) NSPersistentContainer *persistentContainer;
 
+@property (nonatomic, strong) NSManagedObjectContext *fetchingObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext *savingObjectContext;
+
 @end
 
 @implementation StorageService
@@ -35,7 +38,7 @@ static NSString * const kModelName = @"GithubApiTest_ObjC";
     }
 
     NSError *savingError = nil;
-    if ([self.savingObjectContext save:&savingError]) {
+    if (![self.savingObjectContext save:&savingError]) {
         NSAssert(NO, @"Error saving context: %@, %@", [savingError localizedDescription], [savingError userInfo]);
     }
 }

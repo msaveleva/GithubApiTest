@@ -13,9 +13,6 @@
 
 @interface StorageService : NSObject
 
-@property (nonatomic, strong) NSManagedObjectContext *fetchingObjectContext;
-@property (nonatomic, strong) NSManagedObjectContext *savingObjectContext;
-
 - (void)saveRepos:(NSArray <Repo *> *)repos;
 - (NSArray <Repo *> *)fetchRepos;
 

@@ -9,6 +9,7 @@
 #import "DataManager.h"
 
 #import "ConnectionService.h"
+#import "StorageService.h"
 
 #import "UserReposRequest.h"
 
@@ -19,6 +20,7 @@
 @interface DataManager ()
 
 @property (nonatomic, strong) ConnectionService *connectionService;
+@property (nonatomic, strong) StorageService *storageService;
 @property (nonatomic, strong) RepoParser *repoParser;
 
 @end
@@ -43,6 +45,7 @@
     UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
 
     __weak typeof(self) weakSelf = self;
+    //TODO: add strongSelf
     [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
         NSMutableArray *repos = [NSMutableArray new];
         for (NSDictionary *dictionary in dataArray) {
@@ -50,6 +53,10 @@
             if (repo) {
                 [repos addObject:repo];
             }
+        }
+
+        if (repos.count > 0) {
+            [weakSelf.storageService saveRepos:repos];
         }
 
         if (completion) {
@@ -67,6 +74,14 @@
     }
 
     return _connectionService;
+}
+
+- (StorageService *)storageService {
+    if (_storageService == nil) {
+        _storageService = [StorageService new];
+    }
+
+    return _storageService;
 }
 
 - (RepoParser *)repoParser {
