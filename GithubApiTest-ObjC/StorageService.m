@@ -29,6 +29,8 @@ static NSString * const kModelName = @"GithubApiTest_ObjC";
 #pragma mark - Public methods
 
 - (void)saveRepos:(NSArray <Repo *> *)repos {
+    [self clearStorage];
+
     for (Repo *repo in repos) {
         NSEntityDescription *entity = [NSEntityDescription entityForName:kRepoEntityName
                                                   inManagedObjectContext:self.savingObjectContext];
@@ -68,6 +70,17 @@ static NSString * const kModelName = @"GithubApiTest_ObjC";
 }
 
 #pragma mark - Private methods
+
+- (void)clearStorage {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kRepoEntityName];
+    NSBatchDeleteRequest *deleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+
+    NSError *deleteError;
+    [self.savingObjectContext executeRequest:deleteRequest error:&deleteError];
+    if (deleteError) {
+        NSAssert(NO, @"Error deleting objects: %@, %@", [deleteError localizedDescription], [deleteError userInfo]);
+    }
+}
 
 - (NSPersistentContainer *)persistentContainer {
     @synchronized (self) {
