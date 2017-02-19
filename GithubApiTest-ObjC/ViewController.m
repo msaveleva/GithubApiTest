@@ -52,6 +52,16 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
     [self.tableView registerNib:cellNib forCellReuseIdentifier:kMainScreenCellId];
 }
 
+- (IBAction)refreshData:(id)sender {
+    __weak typeof(self) weakSelf = self;
+    [[DataManager sharedInstance] forceLoadReposForUser:@"msaveleva" completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
+        weakSelf.repos = repos;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
+    }];
+}
 
 #pragma mark - UITableViewDataSource methods
 

@@ -9,6 +9,7 @@
 #import "DataManager.h"
 
 #import "ConnectionService.h"
+#import "StorageService.h"
 
 #import "UserReposRequest.h"
 
@@ -19,6 +20,7 @@
 @interface DataManager ()
 
 @property (nonatomic, strong) ConnectionService *connectionService;
+@property (nonatomic, strong) StorageService *storageService;
 @property (nonatomic, strong) RepoParser *repoParser;
 
 @end
@@ -40,9 +42,38 @@
 #pragma mark - Public methods
 
 - (void)loadReposForUser:(NSString *)userName completion:(void (^)(NSArray <Repo *> * _Nullable, NSError * _Nullable))completion {
+    //First try to load data from cache.
+    NSArray <Repo *> *repos = [self.storageService fetchRepos];
+    if (repos.count > 0) {
+        if (completion) {
+            completion(repos, nil);
+        }
+    } else {
+        //Load from server if there is no cached data.
+        [self loadDataFromServerForUser:userName completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
+            if (completion) {
+                completion(repos, error);
+            }
+        }];
+    }
+}
+
+- (void)forceLoadReposForUser:(NSString *)userName completion:(void (^)(NSArray<Repo *> * _Nullable, NSError * _Nullable))completion {
+    [self loadDataFromServerForUser:userName completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
+        if (completion) {
+            completion(repos, error);
+        }
+    }];
+}
+
+
+#pragma mark - Private methods
+
+- (void)loadDataFromServerForUser:(NSString *)userName completion:(nullable void(^)(NSArray <Repo *> * _Nullable repos, NSError * _Nullable error))completion {
     UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
 
     __weak typeof(self) weakSelf = self;
+    //TODO: add strongSelf
     [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
         NSMutableArray *repos = [NSMutableArray new];
         for (NSDictionary *dictionary in dataArray) {
@@ -52,14 +83,15 @@
             }
         }
 
+        if (repos.count > 0) {
+            [weakSelf.storageService saveRepos:repos];
+        }
+
         if (completion) {
             completion([repos copy], error);
         }
     }];
 }
-
-
-#pragma mark - Private methods
 
 - (ConnectionService *)connectionService {
     if (_connectionService == nil) {
@@ -67,6 +99,14 @@
     }
 
     return _connectionService;
+}
+
+- (StorageService *)storageService {
+    if (_storageService == nil) {
+        _storageService = [StorageService new];
+    }
+
+    return _storageService;
 }
 
 - (RepoParser *)repoParser {

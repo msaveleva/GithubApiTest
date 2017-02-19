@@ -9,3 +9,4 @@
 #import "Constants.h"
 
 NSString * const kBaseURLString = @"https://api.github.com/users/";
+NSString * const kRepoEntityName = @"RepoMO";

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CF7EB4491E58BDAF004AB84D /* MainScreenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB4471E58BDAF004AB84D /* MainScreenTableViewCell.m */; };
 		CF7EB44A1E58BDAF004AB84D /* MainScreenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */; };
+		CF7EB45B1E5939FB004AB84D /* RepoMO.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB45A1E5939FB004AB84D /* RepoMO.m */; };
+		CF7EB45E1E593AB1004AB84D /* StorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB45D1E593AB1004AB84D /* StorageService.m */; };
 		CFEFACB21E58950200E33711 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB11E58950200E33711 /* main.m */; };
 		CFEFACB51E58950200E33711 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB41E58950200E33711 /* AppDelegate.m */; };
 		CFEFACB81E58950200E33711 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB71E58950200E33711 /* ViewController.m */; };
@@ -28,6 +30,10 @@
 		CF7EB4461E58BDAF004AB84D /* MainScreenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenTableViewCell.h; sourceTree = "<group>"; };
 		CF7EB4471E58BDAF004AB84D /* MainScreenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenTableViewCell.m; sourceTree = "<group>"; };
 		CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenTableViewCell.xib; sourceTree = "<group>"; };
+		CF7EB4591E5939FB004AB84D /* RepoMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoMO.h; sourceTree = "<group>"; };
+		CF7EB45A1E5939FB004AB84D /* RepoMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoMO.m; sourceTree = "<group>"; };
+		CF7EB45C1E593AB1004AB84D /* StorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		CF7EB45D1E593AB1004AB84D /* StorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageService.m; sourceTree = "<group>"; };
 		CFEFACAD1E58950200E33711 /* GithubApiTest-ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubApiTest-ObjC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEFACB11E58950200E33711 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFEFACB31E58950200E33711 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +78,15 @@
 				CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		CF7EB4581E5939C0004AB84D /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EB4591E5939FB004AB84D /* RepoMO.h */,
+				CF7EB45A1E5939FB004AB84D /* RepoMO.m */,
+			);
+			name = ManagedObjects;
 			sourceTree = "<group>";
 		};
 		CFEFACA41E58950200E33711 = {
@@ -136,6 +151,8 @@
 			children = (
 				CFEFACCC1E58968700E33711 /* ConnectionService.h */,
 				CFEFACCD1E58968700E33711 /* ConnectionService.m */,
+				CF7EB45C1E593AB1004AB84D /* StorageService.h */,
+				CF7EB45D1E593AB1004AB84D /* StorageService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -161,6 +178,7 @@
 		CFEFACE01E589BA400E33711 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CF7EB4581E5939C0004AB84D /* ManagedObjects */,
 				CFEFACE11E589BAB00E33711 /* Repo.h */,
 				CFEFACE21E589BAB00E33711 /* Repo.m */,
 			);
@@ -255,9 +273,11 @@
 				CFEFACBE1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld in Sources */,
 				CFEFACD51E58982900E33711 /* DataManager.m in Sources */,
 				CFEFACB51E58950200E33711 /* AppDelegate.m in Sources */,
+				CF7EB45E1E593AB1004AB84D /* StorageService.m in Sources */,
 				CFEFACE31E589BAB00E33711 /* Repo.m in Sources */,
 				CFEFACB21E58950200E33711 /* main.m in Sources */,
 				CFEFACD81E58985F00E33711 /* UserReposRequest.m in Sources */,
+				CF7EB45B1E5939FB004AB84D /* RepoMO.m in Sources */,
 				CFEFACCE1E58968700E33711 /* ConnectionService.m in Sources */,
 				CFEFACDB1E58997500E33711 /* Constants.m in Sources */,
 			);
