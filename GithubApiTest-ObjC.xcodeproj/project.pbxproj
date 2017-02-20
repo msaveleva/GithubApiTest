@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF7EB4491E58BDAF004AB84D /* MainScreenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB4471E58BDAF004AB84D /* MainScreenTableViewCell.m */; };
+		CF7EB44A1E58BDAF004AB84D /* MainScreenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */; };
+		CF7EB45B1E5939FB004AB84D /* RepoMO.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB45A1E5939FB004AB84D /* RepoMO.m */; };
+		CF7EB45E1E593AB1004AB84D /* StorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7EB45D1E593AB1004AB84D /* StorageService.m */; };
 		CFEFACB21E58950200E33711 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB11E58950200E33711 /* main.m */; };
 		CFEFACB51E58950200E33711 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB41E58950200E33711 /* AppDelegate.m */; };
 		CFEFACB81E58950200E33711 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACB71E58950200E33711 /* ViewController.m */; };
@@ -14,9 +18,22 @@
 		CFEFACBE1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACBC1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld */; };
 		CFEFACC01E58950200E33711 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFEFACBF1E58950200E33711 /* Assets.xcassets */; };
 		CFEFACC31E58950200E33711 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFEFACC11E58950200E33711 /* LaunchScreen.storyboard */; };
+		CFEFACCE1E58968700E33711 /* ConnectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACCD1E58968700E33711 /* ConnectionService.m */; };
+		CFEFACD51E58982900E33711 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACD41E58982900E33711 /* DataManager.m */; };
+		CFEFACD81E58985F00E33711 /* UserReposRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACD71E58985F00E33711 /* UserReposRequest.m */; };
+		CFEFACDB1E58997500E33711 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACDA1E58997500E33711 /* Constants.m */; };
+		CFEFACDF1E589B9F00E33711 /* RepoParser.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACDE1E589B9F00E33711 /* RepoParser.m */; };
+		CFEFACE31E589BAB00E33711 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEFACE21E589BAB00E33711 /* Repo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF7EB4461E58BDAF004AB84D /* MainScreenTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenTableViewCell.h; sourceTree = "<group>"; };
+		CF7EB4471E58BDAF004AB84D /* MainScreenTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenTableViewCell.m; sourceTree = "<group>"; };
+		CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenTableViewCell.xib; sourceTree = "<group>"; };
+		CF7EB4591E5939FB004AB84D /* RepoMO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoMO.h; sourceTree = "<group>"; };
+		CF7EB45A1E5939FB004AB84D /* RepoMO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoMO.m; sourceTree = "<group>"; };
+		CF7EB45C1E593AB1004AB84D /* StorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		CF7EB45D1E593AB1004AB84D /* StorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorageService.m; sourceTree = "<group>"; };
 		CFEFACAD1E58950200E33711 /* GithubApiTest-ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubApiTest-ObjC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFEFACB11E58950200E33711 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFEFACB31E58950200E33711 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +45,18 @@
 		CFEFACBF1E58950200E33711 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFEFACC21E58950200E33711 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFEFACC41E58950200E33711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFEFACCC1E58968700E33711 /* ConnectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionService.h; sourceTree = "<group>"; };
+		CFEFACCD1E58968700E33711 /* ConnectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionService.m; sourceTree = "<group>"; };
+		CFEFACD31E58982900E33711 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		CFEFACD41E58982900E33711 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		CFEFACD61E58985F00E33711 /* UserReposRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserReposRequest.h; sourceTree = "<group>"; };
+		CFEFACD71E58985F00E33711 /* UserReposRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserReposRequest.m; sourceTree = "<group>"; };
+		CFEFACD91E58997500E33711 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CFEFACDA1E58997500E33711 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CFEFACDD1E589B9F00E33711 /* RepoParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepoParser.h; sourceTree = "<group>"; };
+		CFEFACDE1E589B9F00E33711 /* RepoParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepoParser.m; sourceTree = "<group>"; };
+		CFEFACE11E589BAB00E33711 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		CFEFACE21E589BAB00E33711 /* Repo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +70,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF7EB4451E58BD86004AB84D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EB4461E58BDAF004AB84D /* MainScreenTableViewCell.h */,
+				CF7EB4471E58BDAF004AB84D /* MainScreenTableViewCell.m */,
+				CF7EB4481E58BDAF004AB84D /* MainScreenTableViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		CF7EB4581E5939C0004AB84D /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EB4591E5939FB004AB84D /* RepoMO.h */,
+				CF7EB45A1E5939FB004AB84D /* RepoMO.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		CFEFACA41E58950200E33711 = {
 			isa = PBXGroup;
 			children = (
@@ -60,10 +108,17 @@
 		CFEFACAF1E58950200E33711 /* GithubApiTest-ObjC */ = {
 			isa = PBXGroup;
 			children = (
+				CFEFACD91E58997500E33711 /* Constants.h */,
+				CFEFACDA1E58997500E33711 /* Constants.m */,
+				CFEFACE01E589BA400E33711 /* Model */,
+				CFEFACDC1E589B9000E33711 /* Parsers */,
+				CFEFACCF1E58968A00E33711 /* Requests */,
+				CFEFACCB1E58967400E33711 /* Services */,
+				CFEFACCA1E58966800E33711 /* Managers */,
+				CFEFACE41E58A26D00E33711 /* ViewControllers */,
+				CF7EB4451E58BD86004AB84D /* Cells */,
 				CFEFACB31E58950200E33711 /* AppDelegate.h */,
 				CFEFACB41E58950200E33711 /* AppDelegate.m */,
-				CFEFACB61E58950200E33711 /* ViewController.h */,
-				CFEFACB71E58950200E33711 /* ViewController.m */,
 				CFEFACB91E58950200E33711 /* Main.storyboard */,
 				CFEFACBF1E58950200E33711 /* Assets.xcassets */,
 				CFEFACC11E58950200E33711 /* LaunchScreen.storyboard */,
@@ -80,6 +135,63 @@
 				CFEFACB11E58950200E33711 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CFEFACCA1E58966800E33711 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACD31E58982900E33711 /* DataManager.h */,
+				CFEFACD41E58982900E33711 /* DataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		CFEFACCB1E58967400E33711 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACCC1E58968700E33711 /* ConnectionService.h */,
+				CFEFACCD1E58968700E33711 /* ConnectionService.m */,
+				CF7EB45C1E593AB1004AB84D /* StorageService.h */,
+				CF7EB45D1E593AB1004AB84D /* StorageService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CFEFACCF1E58968A00E33711 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACD61E58985F00E33711 /* UserReposRequest.h */,
+				CFEFACD71E58985F00E33711 /* UserReposRequest.m */,
+			);
+			name = Requests;
+			sourceTree = "<group>";
+		};
+		CFEFACDC1E589B9000E33711 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACDD1E589B9F00E33711 /* RepoParser.h */,
+				CFEFACDE1E589B9F00E33711 /* RepoParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		CFEFACE01E589BA400E33711 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF7EB4581E5939C0004AB84D /* ManagedObjects */,
+				CFEFACE11E589BAB00E33711 /* Repo.h */,
+				CFEFACE21E589BAB00E33711 /* Repo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CFEFACE41E58A26D00E33711 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CFEFACB61E58950200E33711 /* ViewController.h */,
+				CFEFACB71E58950200E33711 /* ViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7EB44A1E58BDAF004AB84D /* MainScreenTableViewCell.xib in Resources */,
 				CFEFACC31E58950200E33711 /* LaunchScreen.storyboard in Resources */,
 				CFEFACC01E58950200E33711 /* Assets.xcassets in Resources */,
 				CFEFACBB1E58950200E33711 /* Main.storyboard in Resources */,
@@ -154,10 +267,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFEFACDF1E589B9F00E33711 /* RepoParser.m in Sources */,
+				CF7EB4491E58BDAF004AB84D /* MainScreenTableViewCell.m in Sources */,
 				CFEFACB81E58950200E33711 /* ViewController.m in Sources */,
 				CFEFACBE1E58950200E33711 /* GithubApiTest_ObjC.xcdatamodeld in Sources */,
+				CFEFACD51E58982900E33711 /* DataManager.m in Sources */,
 				CFEFACB51E58950200E33711 /* AppDelegate.m in Sources */,
+				CF7EB45E1E593AB1004AB84D /* StorageService.m in Sources */,
+				CFEFACE31E589BAB00E33711 /* Repo.m in Sources */,
 				CFEFACB21E58950200E33711 /* main.m in Sources */,
+				CFEFACD81E58985F00E33711 /* UserReposRequest.m in Sources */,
+				CF7EB45B1E5939FB004AB84D /* RepoMO.m in Sources */,
+				CFEFACCE1E58968700E33711 /* ConnectionService.m in Sources */,
+				CFEFACDB1E58997500E33711 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +438,7 @@
 				CFEFACC91E58950200E33711 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
