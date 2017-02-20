@@ -79,18 +79,18 @@
     UserReposRequest *userReposRequest = [UserReposRequest createWithUserName:userName];
 
     __weak typeof(self) weakSelf = self;
-    //TODO: add strongSelf
     [self.connectionService loadDataWithRequest:userReposRequest completion:^(NSArray * _Nullable dataArray, NSError * _Nullable error) {
+        typeof(self) strongSelf = weakSelf;
         NSMutableArray *repos = [NSMutableArray new];
         for (NSDictionary *dictionary in dataArray) {
-            Repo *repo = [weakSelf.repoParser createRepoWithDictionary:dictionary];
+            Repo *repo = [strongSelf.repoParser createRepoWithDictionary:dictionary];
             if (repo) {
                 [repos addObject:repo];
             }
         }
 
         if (repos.count > 0) {
-            [weakSelf.storageService saveRepos:repos];
+            [strongSelf.storageService saveRepos:repos];
         }
 
         if (completion) {
