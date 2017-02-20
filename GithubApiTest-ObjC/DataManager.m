@@ -44,7 +44,7 @@
 - (void)loadReposForUser:(NSString *)userName completion:(void (^)(NSArray <Repo *> * _Nullable, NSError * _Nullable))completion {
     //First try to load data from cache.
     NSArray <Repo *> *repos = [self.storageService fetchRepos];
-    if (repos.count > 0) {
+    if (repos.count > 0 && [repos.firstObject.owner isEqualToString:userName]) {
         if (completion) {
             completion(repos, nil);
         }
@@ -64,6 +64,12 @@
             completion(repos, error);
         }
     }];
+}
+
+- (NSArray <Repo *> *)checkCache {
+    NSArray <Repo *> *repos = [self.storageService fetchRepos];
+
+    return repos;
 }
 
 

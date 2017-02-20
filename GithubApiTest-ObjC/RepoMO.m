@@ -14,11 +14,13 @@
 @dynamic identifier;
 @dynamic name;
 @dynamic repoDescription;
+@dynamic owner;
 
 - (void)configureWith:(Repo *)repo {
     self.identifier = repo.identifier;
     self.name = repo.name;
     self.repoDescription = repo.repoDescription;
+    self.owner = repo.owner;
 }
 
 @end
