@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)forceLoadReposForUser:(NSString *)userName
                    completion:(nullable void(^)(NSArray <Repo *> * _Nullable repos, NSError * _Nullable error))completion;
 
+- (NSArray <Repo *> *)checkCache;
+
 @end
 
 NS_ASSUME_NONNULL_END

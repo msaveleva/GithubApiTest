@@ -13,9 +13,11 @@
 - (int64_t)identifier;
 - (NSString *)name;
 - (NSString *)repoDescription;
+- (NSString *)owner;
 
 - (instancetype)initWithIdentifier:(int64_t)identifier
                               name:(NSString *)name
-                   repoDescription:(NSString *)repoDescription;
+                   repoDescription:(NSString *)repoDescription
+                             owner:(NSString *)owner;
 
 @end

@@ -43,20 +43,19 @@
 
 - (void)loadReposForUser:(NSString *)userName completion:(void (^)(NSArray <Repo *> * _Nullable, NSError * _Nullable))completion {
     //First try to load data from cache.
-    //TODO: add check if the same user.
-//    NSArray <Repo *> *repos = [self.storageService fetchRepos];
-//    if (repos.count > 0) {
-//        if (completion) {
-//            completion(repos, nil);
-//        }
-//    } else {
+    NSArray <Repo *> *repos = [self.storageService fetchRepos];
+    if (repos.count > 0 && [repos.firstObject.owner isEqualToString:userName]) {
+        if (completion) {
+            completion(repos, nil);
+        }
+    } else {
         //Load from server if there is no cached data.
         [self loadDataFromServerForUser:userName completion:^(NSArray<Repo *> * _Nullable repos, NSError * _Nullable error) {
             if (completion) {
                 completion(repos, error);
             }
         }];
-//    }
+    }
 }
 
 - (void)forceLoadReposForUser:(NSString *)userName completion:(void (^)(NSArray<Repo *> * _Nullable, NSError * _Nullable))completion {
@@ -65,6 +64,12 @@
             completion(repos, error);
         }
     }];
+}
+
+- (NSArray <Repo *> *)checkCache {
+    NSArray <Repo *> *repos = [self.storageService fetchRepos];
+
+    return repos;
 }
 
 

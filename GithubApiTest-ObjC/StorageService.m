@@ -60,7 +60,8 @@ static NSString * const kModelName = @"GithubApiTest_ObjC";
     for (RepoMO *repoObject in reposObjects) {
         Repo *repo = [[Repo alloc] initWithIdentifier:repoObject.identifier
                                                  name:repoObject.name
-                                      repoDescription:repoObject.repoDescription];
+                                      repoDescription:repoObject.repoDescription
+                                                owner:repoObject.owner];
         if (repo) {
             [repos addObject:repo];
         }

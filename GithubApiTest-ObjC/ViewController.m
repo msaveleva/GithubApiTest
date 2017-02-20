@@ -30,9 +30,20 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
     [super viewDidLoad];
 
     [self setupUI];
+    [self checkCachedData];
 }
 
 #pragma mark - Private methods
+
+- (void)checkCachedData {
+    self.repos  = [[DataManager sharedInstance] checkCache];
+    if (self.repos.count) {
+        self.userName = self.repos.firstObject.owner;
+        [self.tableView reloadData];
+    } else {
+        [self showUserAlert];
+    }
+}
 
 - (void)setupUI {
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -59,11 +70,12 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
 }
 
 - (IBAction)changeUser:(id)sender {
-    [self makeDefaultTextField];
     [self showUserAlert];
 }
 
 - (void)showUserAlert {
+    [self makeDefaultTextField];
+
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Find repos"
                                                                         message:@"Enter Github user name"
                                                                  preferredStyle:UIAlertControllerStyleAlert];
@@ -110,6 +122,11 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Incorrect user name"
                                                                        message:@"Try enter another user name."
                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:nil];
+        [alert addAction:okAction];
+
         [self presentViewController:alert animated:YES completion:nil];
 
         return NO;

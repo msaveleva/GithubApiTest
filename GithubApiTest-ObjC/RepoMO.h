@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int64_t identifier;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong, nullable) NSString *repoDescription;
+@property (nonatomic, strong) NSString *owner;
 
 - (void)configureWith:(Repo *)repo;
 
