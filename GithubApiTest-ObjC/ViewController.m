@@ -18,6 +18,7 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray <Repo *> *repos;
 
+@property (nonatomic, strong)  UIAlertController *alertController;
 @property (nonatomic, strong) UITextField *userNameTextField;
 @property (nonatomic, strong, nullable) NSString *userName;
 
@@ -58,6 +59,7 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
 }
 
 - (IBAction)changeUser:(id)sender {
+    [self makeDefaultTextField];
     [self showUserAlert];
 }
 
@@ -113,6 +115,42 @@ static NSString * const kMainScreenCellId = @"MainScreenCellId";
         return NO;
     } else {
         return YES;
+    }
+}
+
+- (UIAlertController *)alertController {
+    if (_alertController == nil) {
+        _alertController = [UIAlertController alertControllerWithTitle:@"Find repos"
+                                                               message:@"Enter Github user name"
+                                                        preferredStyle:UIAlertControllerStyleAlert];
+
+        __weak typeof(self) weakSelf = self;
+        [_alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            weakSelf.userNameTextField = textField;
+            textField.placeholder = @"Enter user name";
+        }];
+
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                               style:UIAlertActionStyleCancel
+                                                             handler:nil];
+        [_alertController addAction:cancelAction];
+
+        UIAlertAction *findAction = [UIAlertAction actionWithTitle:@"Find"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * _Nonnull action) {
+                                                               weakSelf.userName = weakSelf.userNameTextField.text;
+                                                               [weakSelf fetchDataForUser:weakSelf.userNameTextField.text];
+                                                           }];
+        [_alertController addAction:findAction];
+    }
+
+    return _alertController;
+}
+
+- (void)makeDefaultTextField {
+    if (self.userNameTextField != nil) {
+        self.userNameTextField.text = nil;
+        self.userNameTextField.placeholder = @"Enter user name";
     }
 }
 
